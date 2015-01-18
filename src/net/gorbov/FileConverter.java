@@ -11,7 +11,7 @@ import java.util.zip.GZIPOutputStream;
 import static java.nio.file.StandardOpenOption.*;
 
 /**
- * Created by Mihail on 12.01.2015.
+ * Class converting text file from UTF-8 to Cp1251 and compress file if it size over 10MB
  */
 public class FileConverter {
 
