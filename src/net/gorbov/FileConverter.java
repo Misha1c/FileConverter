@@ -19,14 +19,12 @@ public class FileConverter {
 
     public static void main(String args[]){
 
-
-        createFile("resources/TestFile.txt");
-
-        Path fileTo = Paths.get("resources/NewFile.txt");
-        copyFile("resources/TestFile.txt", "resources/NewFile.txt");
+        createFile("TestFile.txt");
+        copyFile("TestFile.txt", "NewFile.txt");
     }
 
     public static void createFile(String filePath){
+
 
         Path file = Paths.get(filePath);
         Charset charset = Charset.forName("Cp1251");
@@ -52,9 +50,9 @@ public class FileConverter {
         Path pathTo = Paths.get(stringPathTo);
 
         try (BufferedReader reader = Files.newBufferedReader(pathFrom, charsetFrom);
-             BufferedWriter writer = Files.newBufferedWriter(pathTo, charsetTo)) {
+             BufferedWriter writer = Files.newBufferedWriter(pathTo, charsetTo, CREATE)) {
 
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null) {
                 writer.write(line, 0, line.length());
             }
